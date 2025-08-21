@@ -1,18 +1,58 @@
-# Qwik City App ⚡️
+# Teste Qwik
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Qwik é um framework moderno para construção de aplicações web extremamente rápidas e escaláveis.  
+Ele foi projetado para **carregar apenas o necessário**, permitindo páginas que iniciam instantaneamente e escalam muito bem sem comprometer a performance.  
+
+- [Documentação do Qwik](https://qwik.dev/)  
+- [Discord da comunidade](https://qwik.dev/chat)  
+- [Repositório no GitHub](https://github.com/QwikDev/qwik)  
+- [@QwikDev no Twitter/X](https://twitter.com/QwikDev)  
+- [Vite (ferramenta de build usada pelo Qwik)](https://vitejs.dev/)  
 
 ---
 
-## Project Structure
+## 🚀 Como instalar e rodar o projeto
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+### Pré-requisitos
+- **Node.js** 18+ (confira com `node -v`)  
+- **npm** (vem junto com Node) ou **pnpm/yarn** se preferir  
 
-Inside your project, you'll see the following directory structure:
+### Criando um novo projeto Qwik
+```bash
+npm create qwik@latest
+```
+
+Escolha a opção **Qwik City (recomendado)** para começar com suporte a rotas, layouts e demais recursos.  
+
+Depois, entre na pasta do projeto e abra no VS Code:
+```bash
+cd nome-do-projeto
+code .
+```
+
+### Instalando dependências
+```bash
+npm install
+```
+
+### Rodando o projeto em modo desenvolvimento
+```bash
+npm run dev
+```
+
+Esse comando:  
+- Inicia o **servidor de desenvolvimento**  
+- Atualiza automaticamente ao salvar arquivos (`hot reload`)  
+
+Acesse no navegador: 👉 `http://localhost:5173/`
+
+---
+
+## 📂 Estrutura do Projeto
+
+Esse projeto usa o **Qwik com QwikCity**. O QwikCity adiciona ferramentas extras para facilitar a criação de sites completos com **rotas baseadas em diretórios, layouts e muito mais**.  
+
+A estrutura padrão é:  
 
 ```
 ├── public/
@@ -24,42 +64,58 @@ Inside your project, you'll see the following directory structure:
         └── ...
 ```
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+- `src/routes`: Diretório para **rotas baseadas em arquivos**.  
+  - Pode conter arquivos `layout.tsx` para layouts hierárquicos.  
+  - Arquivos `index.tsx` funcionam como páginas.  
+  - Arquivos `index.ts` funcionam como **endpoints**.  
+  Veja a doc de [roteamento](https://qwik.dev/qwikcity/routing/overview/).  
 
-- `src/components`: Recommended directory for components.
+- `src/components`: Diretório recomendado para componentes reutilizáveis.  
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+- `public`: Diretório para arquivos estáticos (imagens, ícones, etc).  
+  Veja a doc do [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory).  
 
-## Add Integrations and deployment
+---
 
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+## ⚙️ Comandos úteis
 
-```shell
-npm run qwik add # or `yarn qwik add`
+### 🛠 Desenvolvimento
+```bash
+npm run dev
 ```
+Inicia o servidor de desenvolvimento e observa mudanças no código.  
 
-## Development
+---
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
-
-```shell
-npm start # or `yarn start`
+### 🔍 Preview de produção
+```bash
+npm run preview
 ```
+- Cria um **build de produção**  
+- Inicia um servidor local para **pré-visualizar** o build  
+> ⚠️ Esse servidor é apenas para testes locais, não deve ser usado em produção.  
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+---
 
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-npm run preview # or `yarn preview`
+### 📦 Build de produção
+```bash
+npm run build
 ```
+- Gera os arquivos otimizados de **cliente e servidor**  
+- Usa **TypeScript** para verificar o código  
+- Produz a versão que pode ser hospedada em produção  
 
-## Production
+---
 
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
+### ➕ Adicionar integrações
+```bash
+npm run qwik add
 ```
+Executa o **CLI do Qwik** para adicionar integrações ao projeto.  
+Exemplos de integrações:  
+- **Cloudflare**  
+- **Netlify**  
+- **Express Server**  
+- **Static Site Generator (SSG)**  
+
+---
