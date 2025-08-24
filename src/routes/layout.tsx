@@ -1,18 +1,10 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-
-import styles from "./styles.css?inline";
-
-export const useServerTimeLoader = routeLoader$(() => {
-  return {
-    date: new Date().toISOString(),
-  };
-});
+import { component$, Slot } from '@builder.io/qwik';
 
 export default component$(() => {
-  useStyles$(styles);
   return (
-    <>
-    </>
+    <div class="min-h-screen bg-gray-900 text-white p-6">
+      {/* Conteúdo de cada página filha será inserido aqui */}
+      <Slot />
+    </div>
   );
 });
