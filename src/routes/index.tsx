@@ -21,7 +21,7 @@ export default component$(() => {
       const data: CharacterListResponse = await getAllCharacters(page.value);
       characters.value = data.results;
       totalPages.value = data.info.pages;
-    } catch (err) {
+    } catch {
       error.value = 'Não foi possível carregar os personagens. Tente novamente.';
     } finally {
       loading.value = false;

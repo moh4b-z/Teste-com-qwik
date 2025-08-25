@@ -23,7 +23,7 @@ export default component$(() => {
 
     // Buscar todos os personagens do episódio
     const characters = await Promise.all(
-      data.characters.map((url) => getCharacterByUrl(url))
+      data.characters.map((url: string) => getCharacterByUrl(url))
     );
     return characters;
   });
@@ -52,7 +52,12 @@ export default component$(() => {
                 <div class="characters-grid">
                   {characters.map((char) => (
                     <div key={char.id} class="character-card">
-                      <img src={char.image} alt={char.name} />
+                      <img 
+                        src={char.image} 
+                        alt={char.name}
+                        width={300}
+                        height={300}
+                      />
                       <div class="character-card-info">
                         <h3>{char.name}</h3>
                         <p>{char.species}</p>

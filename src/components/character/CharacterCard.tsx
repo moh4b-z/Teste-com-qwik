@@ -24,7 +24,12 @@ export const CharacterCard = component$<CharacterCardProps>(({ character }) => {
   return (
     <div class="card">
       {/* Imagem */}
-      <img src={character.image} alt={character.name} />
+      <img 
+        src={character.image} 
+        alt={character.name}
+        width={300}
+        height={300}
+      />
 
       {/* Info do personagem */}
       <div class="card-info">
