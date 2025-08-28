@@ -23,9 +23,8 @@
   margin-bottom: 1rem;
 }
 
-/* Grid de personagens */
 .characters-grid {
   display: grid;
-  grid-template-columns: 300px 300px 300px 300px 300px 300px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.25rem;
 }
