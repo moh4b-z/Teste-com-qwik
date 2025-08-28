@@ -4,6 +4,7 @@ import { getEpisodeById } from '../../../services/episode.service';
 import { getCharacterByUrl } from '../../../services/character.service';
 import type { Character } from '../../../types/character';
 import type { Episode } from '../../../types/episode';
+import { CharacterCard } from '../../../components/character/CharacterCard';
 import './episode.css';
 
 export default component$(() => {
@@ -51,18 +52,7 @@ export default component$(() => {
               onResolved={(characters) => (
                 <div class="characters-grid">
                   {characters.map((char) => (
-                    <div key={char.id} class="character-card">
-                      <img 
-                        src={char.image} 
-                        alt={char.name}
-                        width={300}
-                        height={300}
-                      />
-                      <div class="character-card-info">
-                        <h3>{char.name}</h3>
-                        <p>{char.species}</p>
-                      </div>
-                    </div>
+                    <CharacterCard key={char.id} character={char} />
                   ))}
                 </div>
               )}
